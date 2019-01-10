@@ -1,0 +1,166 @@
+# Options:
+# b: only expand at the beginning of a line.
+
+
+# ---- Javascript ---- #
+snippet ok "Object.keys()"
+Object.keys(
+endsnippet
+
+
+snippet i "import" b;
+import $1 from '$2';
+endsnippet
+
+
+snippet if "import from" b;
+import { $1 } from '$2';
+endsnippet
+
+snippet c "const"
+const 
+endsnippet
+
+
+snippet ec "export const"
+export const 
+endsnippet
+
+
+# ---- React (simple ones) ---- #
+snippet p "props"
+props.$1
+endsnippet
+
+
+snippet tp "this props"
+this.props.$1
+endsnippet
+
+
+snippet ts "this state"
+this.state.$1
+endsnippet
+
+
+snippet v "style variable"
+$1: ${ v.$2 };
+endsnippet
+
+snippet vm "@media"
+${ v.mobile } {
+	$1
+}
+endsnippet
+
+
+snippet bi "background-image"
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 50% 50%;
+background-image: url(${ props => props.$1 });
+endsnippet
+
+
+
+
+# ---- React Class ---- #
+snippet rc
+import React from 'react';
+import { connect } from 'react-redux';
+//import PropTypes from 'prop-types';
+
+//import actions from 'actions';
+import { $1CSS } from './styles';
+
+
+const S = undefined;
+const A = {};
+
+
+export default connect(S, A)(class $1 extends React.Component {
+    static propTypes = {
+    };
+
+    render = () => {
+        return (
+			<$1CSS>
+            </$1CSS>
+        );
+    };
+});
+endsnippet
+
+
+snippet get "GET request"
+$1: () => ({
+	type: '$2'
+	meta: {
+		api: true,
+		expect: 'page',
+		onSuccess: local.loadPage,
+	},
+	payload: {
+		url: '$3',
+		method: 'GET',
+	},
+}),
+endsnippet
+
+
+
+# ---- Redux Actions ---- #
+snippet actions "actions"
+import types from 'types';
+
+
+const local = {
+};
+
+
+const api = {
+};
+
+
+export default { name: '$1', actions: { ...api, ...local } };
+endsnippet
+
+
+# ---- Redux Middlware ---- #
+snippet middleware "Middlware boilerplate"
+import types from 'types';
+
+
+export default ({ dispatch }) => next => A => {
+    if (A.type === types.$1) {
+    }
+
+    next(A);
+};
+endsnippet
+
+
+# ---- Redux Reducer ---- #
+snippet reducer "reducer"
+import types from 'types';
+
+
+const initialState = {
+};
+
+
+export default { name: '$1', reducer: (S=initialState, A) => {
+    switch (A.type) {
+        default:
+            return S;
+    }
+} };
+endsnippet
+
+
+# ---- Redux Types ---- #
+snippet types "types"
+export default { name: '$1', types: {
+	
+} };
+endsnippet

@@ -1,0 +1,23 @@
+snippet fv "Function view"
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from ..model import $1
+
+
+@api_view(['$2'])
+def $3(request):
+
+    return Response({
+    },
+        status=status.HTTP_200_OK
+    )
+endsnippet
+
+
+snippet ra "Require admin"
+account = request.user.account
+if not account.is_admin:
+	return Response(status=status.HTTP_401_UNAUTHORIZED)
+endsnippet

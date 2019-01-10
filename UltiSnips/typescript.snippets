@@ -1,0 +1,205 @@
+# Options:
+# b: only expand at the beginning of a line.
+
+
+# ---- Javascript ---- #
+snippet ok "Object.keys()"
+Object.keys(
+endsnippet
+
+
+snippet i "import" b;
+import $1 from '$2';
+endsnippet
+
+
+snippet if "import from" b;
+import { $1 } from '$2';
+endsnippet
+
+snippet c "const"
+const 
+endsnippet
+
+
+snippet ec "export const"
+export const 
+endsnippet
+
+
+# ---- React (simple ones) ---- #
+snippet p "props"
+props.$1
+endsnippet
+
+
+snippet tp "this props"
+this.props.$1
+endsnippet
+
+
+snippet ts "this state"
+this.state.$1
+endsnippet
+
+
+snippet v "style variable"
+$1: ${ v.$2 };
+endsnippet
+
+snippet vm "@media"
+${ v.mobile } {
+	$1
+}
+endsnippet
+
+snippet state "Typed state"
+const initialState = {};
+
+type State = Readonly<typeof initialState>;
+	readonly state: State = initialState;
+endsnippet
+
+
+snippet bi "background-image"
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 50% 50%;
+background-image: url(${ props => props.$1 });
+endsnippet
+
+
+# ---- React Class ---- #
+snippet rc
+import * as React from 'react';
+import { observer } from 'mobx-react';
+
+import { $1CSS } from './styles';
+
+
+type Props = {
+};
+
+
+@observer
+export default class $1 extends React.Component <Props> {
+    render() {
+        return (
+			<$1CSS>
+            </$1CSS>
+        );
+    };
+};
+endsnippet
+
+
+snippet get "GET request"
+$1: () => ({
+	type: '$2'
+	meta: {
+		api: true,
+		expect: 'page',
+		onSuccess: local.loadPage,
+	},
+	payload: {
+		url: '$3',
+		method: 'GET',
+	},
+}),
+endsnippet
+
+
+
+# ---- Redux Actions ---- #
+snippet actions "actions"
+import types from 'types';
+
+
+const local = {
+};
+
+
+const api = {
+};
+
+
+export default { name: '$1', actions: { ...api, ...local } };
+endsnippet
+
+
+# ---- Redux Middlware ---- #
+snippet middleware "Middlware boilerplate"
+import actions from 'actions';
+import types from 'types';
+
+
+export default ({ dispatch }) => next => A => {
+    if (A.type === types.$1) {
+		dispatch(actions.$2())
+    }
+
+    return next(A);
+};
+endsnippet
+
+
+# ---- MobX ---- #
+# Store
+snippet store "MobX store"
+import { action, computed, observable } from  'mobx';
+
+
+export default class $1Store {
+    root: Store.Root
+
+    constructor(rootStore) {
+        this.root = rootStore;
+    };
+};
+
+
+declare global {
+	namespace Store {
+		type $1 = $1Store;
+	}
+}
+endsnippet
+
+
+# Inject
+snippet inject "MobX store"
+import { inject, observer } from 'mobx-react';
+
+@inject(({ root, dispatch }: InjectStore) => ({
+}))
+@observer
+endsnippet
+
+
+# Computed
+snippet computed "Mobx computed field"
+@computed
+get $1(): $2 {
+	return $3;
+};
+endsnippet
+
+# Action
+snippet action "Mobx action"
+@action
+public $1(): void {
+};
+endsnippet
+
+
+
+# ---- Styles ---- #
+snippet styles "Styled-components styles file"
+import styled from 'styled-components';
+
+import v from 'styles';
+
+
+export const $1CSS = styled.div`
+`;
+endsnippet
