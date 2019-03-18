@@ -69,24 +69,46 @@ background-image: url(${ props => props.$1 });
 endsnippet
 
 
+# ---- React Functional Component ---- #
+snippet rf
+import * as React from 'react';
+import { observer } from 'mobx-react-lite'
+
+import * as CSS from './css';
+import { rootContext } from 'src';
+
+
+const $1 = observer(() => {
+    const store: Store.Root = React.useContext(rootContext);
+
+    return (
+        <CSS.$1>
+        </CSS.$1>
+    );
+});
+
+
+export default $1;
+endsnippet
+
+
 # ---- React Class ---- #
 snippet rc
 import * as React from 'react';
 import { observer } from 'mobx-react';
 
-import { $1CSS } from './styles';
+import * as CSS from './css';
 
 
-type Props = {
-};
+type Props = {};
 
 
 @observer
 export default class $1 extends React.Component <Props> {
     render() {
         return (
-			<$1CSS>
-            </$1CSS>
+			<CSS.$1>
+            </CSS.$1>
         );
     };
 };
@@ -167,12 +189,19 @@ endsnippet
 
 
 # Inject
-snippet inject "MobX store"
+snippet inject "Inject MobX store"
 import { inject, observer } from 'mobx-react';
 
-@inject(({ root, dispatch }: InjectStore) => ({
-}))
-@observer
+
+type Props = {
+} & Partial<ReturnType<typeof injected>>;
+
+
+const injected = (({ root }: InjectStore) => ({
+}));
+
+
+@inject(injected)
 endsnippet
 
 

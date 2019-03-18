@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/denite.nvim'
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'tag': '4.0', 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim'
 
 " Async
 Plug 'Shougo/vimproc.vim'
@@ -137,12 +137,6 @@ set showcmd
 " Make backspaces more powerfull.
 set backspace=indent,eol,start
 
-" - Omnifunc -
-aug omnicomplete
-  autocmd!
-  autocmd FileType css,scss,sass,stylus,less setl omnifunc=csscomplete#CompleteCSS
-aug END
-
 
 " ---- Formatting ---- "
 " No wrapping
@@ -230,7 +224,7 @@ nmap <Leader>c :cclose<CR>
 
 
 " Apply prettier to current file.
-map <Leader>pr 0ggvG$:'<,'> !prettier % --single-quote=True --tab-width=4 --flow-parser=True<CR>
+map <Leader>pr 0ggvG$:'<,'> !prettier %
 
 " Tab completion.
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -248,14 +242,25 @@ let g:agprg='ag -S --nocolor --nogroup --column --ignore __pycache__ --ignore no
 " After this is configured, :ALEFix will try and fix your JS code with ESLint.
 let g:ale_sign_error = '●'
 
-let g:ale_fixers = { 'javascript': ['eslint'], }
+let g:ale_fixers = {
+\   'css': ['prettier'],
+\   'javascript': ['eslint', 'flow'],
+\   'python': ['flake8', 'pycodestyle', 'mypy'],
+\   'sass': ['prettier'],
+\   'scss': ['prettier'],
+\   'typescript': ['tslint', 'prettier'],
+\   'typescript.jsx': ['tslint', 'prettier'],
+\}
+
 
 let g:ale_linters = {
 \   'css': ['prettier'],
-\   'python': ['flake8', 'pycodestyle', 'mypy'],
 \   'javascript': ['eslint', 'flow'],
+\   'python': ['flake8', 'pycodestyle', 'mypy'],
 \   'sass': ['prettier'],
 \   'scss': ['prettier'],
+\   'typescript': [],
+\   'typescript.jsx': [],
 \}
 
 " Ignore module level import, and line too long.
