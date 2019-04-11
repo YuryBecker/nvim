@@ -56,6 +56,9 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Linting
 Plug 'w0rp/ale'
 
+" MJML
+Plug 'amadeus/vim-mjml'
+
 " Python
 Plug 'zchee/deoplete-jedi'
 
@@ -98,7 +101,6 @@ highlight nonText ctermbg=NONE
 set laststatus=1
 
 
-
 " ---- Airline ----
 "  Always show powerline
 set laststatus=2
@@ -113,7 +115,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'typewriter'
 
 
-
 " ---- General settings ---- "
 "  Use system clipboard - paste and copy using y & p.
 set clipboard=unnamed
@@ -126,7 +127,7 @@ set ignorecase
 set smartcase
 
 " Show line and column number.
-set ruler               
+set ruler
 
 " Syntax highlighting.
 syntax on
@@ -174,7 +175,6 @@ if has("persistent_undo")
 endif
 
 
-
 " ---- Mapping ----
 " Leader mapping.
 let mapleader=","
@@ -197,7 +197,6 @@ nmap <Leader>t :Term fish<CR>
 " Run current file in python shell
 nmap <Leader>p :Run python<CR>
 nmap <Leader>j :Run javascript<CR>
-
 
 " Turn off search highlight
 map <Leader><space> :nohlsearch<CR>
@@ -222,7 +221,6 @@ nmap <C-l> <C-W>l
 " Close quick fix window
 nmap <Leader>c :cclose<CR>
 
-
 " Apply prettier to current file.
 map <Leader>pr 0ggvG$:'<,'> !prettier %
 
@@ -231,12 +229,10 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
-
 " ---- Plugin specific options ----
 " - Ack.vim -
 " Ignore certain files / folders in Ack search.
 let g:agprg='ag -S --nocolor --nogroup --column --ignore __pycache__ --ignore node_modules --ignore virtualenv --ignore "./public/stylesheets/*"'
-
 
 " - Ale -
 " After this is configured, :ALEFix will try and fix your JS code with ESLint.
@@ -244,18 +240,16 @@ let g:ale_sign_error = '●'
 
 let g:ale_fixers = {
 \   'css': ['prettier'],
-\   'javascript': ['eslint', 'flow'],
-\   'python': ['flake8', 'pycodestyle', 'mypy'],
+\   'javascript': ['eslint'],
 \   'sass': ['prettier'],
 \   'scss': ['prettier'],
-\   'typescript': ['tslint', 'prettier'],
-\   'typescript.jsx': ['tslint', 'prettier'],
+\   'typescript': ['tslint'],
+\   'typescript.jsx': ['tslint'],
 \}
-
 
 let g:ale_linters = {
 \   'css': ['prettier'],
-\   'javascript': ['eslint', 'flow'],
+\   'javascript': ['eslint'],
 \   'python': ['flake8', 'pycodestyle', 'mypy'],
 \   'sass': ['prettier'],
 \   'scss': ['prettier'],
@@ -268,12 +262,10 @@ let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '--ignore=E402,E501'
 let g:ale_python_pycodestyle_options = '--ignore=E402,E501'
 
-
 " Mypy
 let g:ale_python_mypy_executable = 'mypy'
 let g:ale_python_mypy_options = '--ignore-missing-imports --check-untyped-defs'
 let g:ale_python_mypy_use_global = 1
-
 
 " Navigate between errors.
 nnoremap <leader>an :ALENextWrap<cr>
@@ -285,7 +277,6 @@ let g:ale_fix_on_save = 1
 " Enable completion where available.
 let g:ale_completion_enabled = 1
 
-
 " - ChooseWin -
 " Session prompt
 let g:session_autoload = 'no'
@@ -296,15 +287,12 @@ nmap - <Plug>(choosewin)
 " Enable overlay
 let g:choosewin_overlay_enable = 0
 
-
 " - Goyo -
 nnoremap <Leader>h :Goyo 100%x100%<CR>
 nnoremap <Leader>H :Goyo!<CR>
 
-
 " - CtrlSF -
 nmap <Leader>f <Plug>CtrlSFPrompt
-
 
 " - CtrlP -
 " Ignore some folders and files for CtrlP indexing.
@@ -313,21 +301,17 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.so$\|\.jpeg$\|\.jpg$\|\.png$\|\.dat$|\.DS_Store$'
   \ }
 
-
 " - Deoplete -
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length=1
-
 
 " - FZF - "
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>t :Files<CR>
 
-
 " - NERD Commenter - "
 " Add spacing in comments using NERDCommenter
 let g:NERDCustomDelimiters = { 'py' : { 'left': '# ', 'leftAlt': '', 'rightAlt': '' }}
-
 
 " - Prettier formatter -
 autocmd FileType javascript set formatprg=prettier\ --stdin
@@ -335,8 +319,6 @@ autocmd FileType javascript set formatprg=prettier\ --stdin
 " ---- Typescript ---- "
 " Set filetypes as typescript.jsx
 "autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
-
-
 
 " - UltiSnips - "
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -366,12 +348,10 @@ endfunction
 
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
-
 " - Vim run - "
 let g:run_cmd_python = ['python3']
 
-
 " - Vim-javascript - "
-let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_arrow_function = "⇒"
 let g:javascript_conceal_return  = "ℛ"
 let g:javascript_conceal_function = "ƒ"

@@ -1,3 +1,6 @@
+" Removes highlight around concealed charachter.
+highlight! link Conceal Operator
+
 silent! syntax clear typescriptClassKeyword
 silent! syntax clear typescriptIdentifier
 silent! syntax clear typescriptVariable
