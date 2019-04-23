@@ -243,8 +243,8 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'sass': ['prettier'],
 \   'scss': ['prettier'],
-\   'typescript': ['tslint'],
-\   'typescript.jsx': ['tslint'],
+\   'typescript': [],
+\   'typescript.jsx': [],
 \}
 
 let g:ale_linters = {
@@ -253,9 +253,10 @@ let g:ale_linters = {
 \   'python': ['flake8', 'pycodestyle', 'mypy'],
 \   'sass': ['prettier'],
 \   'scss': ['prettier'],
-\   'typescript': [],
-\   'typescript.jsx': [],
+\   'typescript': ['tsserver'],
+\   'typescript.jsx': ['tsserver'],
 \}
+
 
 " Ignore module level import, and line too long.
 let g:ale_python_flake8_executable = 'python3'

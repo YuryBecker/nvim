@@ -75,17 +75,21 @@ import * as React from 'react';
 import { observer } from 'mobx-react-lite'
 
 import * as CSS from './css';
+// import getState from 'state';
 
 
-const $1 = observer(() => {
+// const { store, dispatch } = getState();
+
+
+export default observer((props: {
+}) => {
+	console.log('Props:', props);
+
     return (
         <CSS.$1>
         </CSS.$1>
     );
 });
-
-
-export default $1;
 endsnippet
 
 
@@ -112,21 +116,11 @@ export default class $1 extends React.Component <Props> {
 endsnippet
 
 
-snippet get "GET request"
-$1: () => ({
-	type: '$2'
-	meta: {
-		api: true,
-		expect: 'page',
-		onSuccess: local.loadPage,
-	},
-	payload: {
-		url: '$3',
-		method: 'GET',
-	},
-}),
+# ---- Hooks ---- #
+snippet ue "Use Effect"
+React.useEffect(() => {
+}, []);
 endsnippet
-
 
 
 # ---- Redux Actions ---- #
@@ -226,6 +220,14 @@ import styled from 'styled-components';
 import v from 'styles';
 
 
-export const $1CSS = styled.div`
-`;
+export const $1 = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+
+	width: 100%;
+	background: ${ v.color.white };
+$2;
+
 endsnippet
