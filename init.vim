@@ -23,9 +23,6 @@ Plug 'Shougo/denite.nvim'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
 
-" Async
-Plug 'Shougo/vimproc.vim'
-
 " Commenting
 Plug 'scrooloose/nerdcommenter'
 
@@ -64,7 +61,6 @@ Plug 'zchee/deoplete-jedi'
 
 " Typescript
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 " Terminal
 Plug 'mklabs/split-term.vim'
@@ -221,9 +217,6 @@ nmap <C-l> <C-W>l
 " Close quick fix window
 nmap <Leader>c :cclose<CR>
 
-" Apply prettier to current file.
-map <Leader>pr 0ggvG$:'<,'> !prettier %
-
 " Tab completion.
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -243,8 +236,8 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'sass': ['prettier'],
 \   'scss': ['prettier'],
-\   'typescript': [],
-\   'typescript.jsx': [],
+\   'typescript': ['tslint'],
+\   'typescript.jsx': ['tslint'],
 \}
 
 let g:ale_linters = {
@@ -254,9 +247,7 @@ let g:ale_linters = {
 \   'sass': ['prettier'],
 \   'scss': ['prettier'],
 \   'typescript': ['tsserver'],
-\   'typescript.jsx': ['tsserver'],
 \}
-
 
 " Ignore module level import, and line too long.
 let g:ale_python_flake8_executable = 'python3'
@@ -278,6 +269,7 @@ let g:ale_fix_on_save = 1
 " Enable completion where available.
 let g:ale_completion_enabled = 1
 
+
 " - ChooseWin -
 " Session prompt
 let g:session_autoload = 'no'
@@ -288,12 +280,15 @@ nmap - <Plug>(choosewin)
 " Enable overlay
 let g:choosewin_overlay_enable = 0
 
+
 " - Goyo -
 nnoremap <Leader>h :Goyo 100%x100%<CR>
 nnoremap <Leader>H :Goyo!<CR>
 
+
 " - CtrlSF -
 nmap <Leader>f <Plug>CtrlSFPrompt
+
 
 " - CtrlP -
 " Ignore some folders and files for CtrlP indexing.
@@ -302,24 +297,25 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.so$\|\.jpeg$\|\.jpg$\|\.png$\|\.dat$|\.DS_Store$'
   \ }
 
+
 " - Deoplete -
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length=1
+
 
 " - FZF - "
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>t :Files<CR>
 
+
 " - NERD Commenter - "
 " Add spacing in comments using NERDCommenter
 let g:NERDCustomDelimiters = { 'py' : { 'left': '# ', 'leftAlt': '', 'rightAlt': '' }}
 
+
 " - Prettier formatter -
 autocmd FileType javascript set formatprg=prettier\ --stdin
 
-" ---- Typescript ---- "
-" Set filetypes as typescript.jsx
-"autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 
 " - UltiSnips - "
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -351,8 +347,3 @@ au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=
 
 " - Vim run - "
 let g:run_cmd_python = ['python3']
-
-" - Vim-javascript - "
-let g:javascript_conceal_arrow_function = "⇒"
-let g:javascript_conceal_return  = "ℛ"
-let g:javascript_conceal_function = "ƒ"
