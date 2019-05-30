@@ -54,10 +54,9 @@ ${ v.mobile } {
 endsnippet
 
 snippet state "Typed state"
-const initialState = {};
+import getState from 'state';
 
-type State = Readonly<typeof initialState>;
-	readonly state: State = initialState;
+const { store, dispatch } = getState();
 endsnippet
 
 

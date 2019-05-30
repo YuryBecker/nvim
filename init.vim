@@ -347,3 +347,6 @@ au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=
 
 " - Vim run - "
 let g:run_cmd_python = ['python3']
+
+" - Vim Startify Quotes - "
+source ~/.config/nvim/quotes.vim
