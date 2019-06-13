@@ -29,6 +29,12 @@ Plug 'scrooloose/nerdcommenter'
 " CSS
 Plug 'ap/vim-css-color'
 
+" C#
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'tpope/vim-dispatch'
+Plug 'https://gitlab.com/mixedCase/deoplete-omnisharp.git'
+Plug 'idbrii/vim-unityengine'
+
 " Dependencies/utilities
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -242,6 +248,7 @@ let g:ale_fixers = {
 
 let g:ale_linters = {
 \   'css': ['prettier'],
+\   'cs': ['mcs', 'mcsc', 'OmniSharp'],
 \   'javascript': ['eslint'],
 \   'python': ['flake8', 'pycodestyle', 'mypy'],
 \   'sass': ['prettier'],
@@ -258,6 +265,11 @@ let g:ale_python_pycodestyle_options = '--ignore=E402,E501'
 let g:ale_python_mypy_executable = 'mypy'
 let g:ale_python_mypy_options = '--ignore-missing-imports --check-untyped-defs'
 let g:ale_python_mypy_use_global = 1
+
+" Unity
+let g:ale_cs_mcsc_assemblies = [
+\ 'Unity/Hub/Editor/2019.3.0a5/Variations/mono/Managed/UnityEngine.dll',
+\]
 
 " Navigate between errors.
 nnoremap <leader>an :ALENextWrap<cr>
@@ -315,6 +327,14 @@ let g:NERDCustomDelimiters = { 'py' : { 'left': '# ', 'leftAlt': '', 'rightAlt':
 
 " - Prettier formatter -
 autocmd FileType javascript set formatprg=prettier\ --stdin
+
+
+"" Unity configuration
+let g:OmniSharp_selector_ui = 'fzf'
+let g:OmniSharp_server_use_mono = 1
+let g:OmniSharp_start_server = 1
+let g:OmniSharp_port = 2000
+autocmd FileType cs nmap <Leader>1 :OmniSharpCodeFormat<CR>
 
 
 " - UltiSnips - "

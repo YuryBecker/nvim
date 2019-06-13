@@ -27,7 +27,7 @@ syntax match typescriptIdentifier 'props' conceal cchar=Ꮅ
 syntax match typescriptIdentifier 'this\.props' conceal cchar=Ꮲ
 syntax match typescriptIdentifier 'this\.state' conceal cchar=Ꮪ
 
-syntax match typescriptIdentifier 'root' conceal cchar=📡
+syntax match typescriptIdentifier 'store' conceal cchar=📡
 syntax match typescriptIdentifier 'dispatch' conceal cchar=📞
 
 syntax match typescriptIdentifier 'types' conceal cchar=☣
