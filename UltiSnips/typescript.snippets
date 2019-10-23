@@ -56,6 +56,7 @@ endsnippet
 snippet state "Typed state"
 import getState from 'state';
 
+
 const { store, dispatch } = getState();
 endsnippet
 
@@ -80,9 +81,7 @@ import * as CSS from './css';
 // const { store, dispatch } = getState();
 
 
-export default observer((props: {
-}) => {
-	console.log('Props:', props);
+export default observer(() => {
 
     return (
         <CSS.$1>
@@ -119,6 +118,11 @@ endsnippet
 snippet ue "Use Effect"
 React.useEffect(() => {
 }, []);
+endsnippet
+
+
+snippet us "Use State"
+const [ $1, $2 ] = React.useState($3);
 endsnippet
 
 

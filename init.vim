@@ -42,6 +42,7 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 " Formatting
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
+Plug 'andymass/vim-matchup'
 
 " Fuzzy search
 Plug 'ctrlpvim/ctrlp.vim'
