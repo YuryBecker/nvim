@@ -1,0 +1,69 @@
+# ---- React ---- #
+snippet ue "Use Effect"
+    React.useEffect(() => {
+        $1
+    }, []);
+
+
+snippet us "Use State"
+    const [ $1, $2 ] = React.useState($3);
+
+
+# ---- MobX ---- #
+snippet is "Import state"
+    import { $1 } from 'state';
+
+
+snippet store "MobX store"
+    import { makeAutoObservable } from 'mobx';
+
+
+    class $1 {
+        constructor() {
+            makeAutoObservable(this);
+        };
+
+        /* ---- Observable ---- */
+
+
+        /* ---- Computed ---- */
+
+
+        /* ---- Actions ---- */
+
+
+        /* ---- Clean up ---- */
+        public reset = () => {
+        };
+    };
+
+
+    export default new $1();
+
+
+# ---- CSS ---- #
+snippet styled "styled-components"
+    import styled from 'styled-components';
+
+    import theme from 'theme';
+
+
+    export const $1 = styled.$2;
+
+
+snippet tm "@media"
+    ${ theme.mobile } {
+        $1
+    }
+
+snippet bi "background-image"
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: url($1);
+
+snippet flex "CSS Flex"
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
