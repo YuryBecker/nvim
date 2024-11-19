@@ -49,3 +49,7 @@ vim.keymap.set("n", "<leader>ip", function()
 
   vim.cmd("term ipython % --i")
 end, { noremap = true, silent = true, desc = "Run in Python" })
+
+-- Remove default keymaps for switch between windows:
+vim.api.nvim_del_keymap("n", "H")
+vim.api.nvim_del_keymap("n", "L")

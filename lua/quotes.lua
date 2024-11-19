@@ -4,15 +4,11 @@ return {
   ]],
 
   [[
-    If you don't hang around there very long. They'll never ever know you're gone.
+    If you don't hang around there very long, they'll never even know you're gone.
   ]],
 
   [[
     It's okay to have a snake in the room, as long as you keep the lights on.
-  ]],
-
-  [[
-    Moderation is for people who don’t need to use the word moderation.
   ]],
 
   [[
@@ -49,10 +45,6 @@ return {
 
   [[
     It's up to the artist to use a language that is understood.
-  ]],
-
-  [[
-    The slickest way to lie is to tell just the right amount of truth.
   ]],
 
   [[
@@ -99,15 +91,6 @@ return {
 
   [[
     Next thing you know, you will only be looking backwards, not forwards.
-  ]],
-
-  [[
-    When the going gets weird, the weird turn professional.
-  ]],
-
-  [[
-    If you're going to be crazy, you have to get paid for it
-    or else you're going to be locked up.
   ]],
 
   [[
