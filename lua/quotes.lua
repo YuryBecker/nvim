@@ -1,5 +1,9 @@
 return {
   [[
+    If you don't learn to find joy in the snow, you will have less joy in your life but precisely the same amount of snow.
+  ]],
+
+  [[
     We do this not because it is easy, but because we thought it would be easy.
   ]],
 

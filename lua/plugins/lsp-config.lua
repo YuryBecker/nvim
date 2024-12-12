@@ -17,7 +17,6 @@ return {
       },
     },
 
-    ---@type lspconfig.options
     servers = {
       eslint = {
         settings = {
@@ -83,6 +82,9 @@ return {
             -- vim.api.nvim_echo({ { "TSSERVER!!", "WarningMsg" } }, true, {})
             client.server_capabilities.documentFormattingProvider = false
           end
+
+          -- Disable default diagnostic so tiny-inline can take over:
+          vim.diagnostic.config({ virtual_text = false })
         end)
 
         vim.api.nvim_create_autocmd("BufWritePre", {
