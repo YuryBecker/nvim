@@ -9,23 +9,13 @@ vim.api.nvim_set_keymap("n", "W", ":w<CR>", { noremap = true, silent = true })
 vim.keymap.set(
   "n",
   "<leader>sx",
-  require("telescope.builtin").resume,
+  require("fzf-lua").resume,
   { noremap = true, silent = true, desc = "Resume from last search" }
 )
 
-vim.keymap.set(
-  "n",
-  "<leader>f",
-  require("telescope.builtin").find_files,
-  { noremap = true, silent = true, desc = "Find from git files" }
-)
+-- vim.keymap.set("n", "<leader>f", require("fzf-lua").files, { noremap = true, silent = true, desc = "Find from git files" })
 
-vim.keymap.set(
-  "n",
-  "<leader>s",
-  require("telescope.builtin").live_grep,
-  { noremap = true, silent = true, desc = "Search git files" }
-)
+-- vim.keymap.set("n", "<leader>s", require("fzf-lua").grep, { noremap = true, silent = true, desc = "Search git files" })
 
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename" })
 
@@ -50,6 +40,6 @@ vim.keymap.set("n", "<leader>ip", function()
   vim.cmd("term ipython % --i")
 end, { noremap = true, silent = true, desc = "Run in Python" })
 
--- Remove default keymaps for switch between windows:
+-- Remove default keymaps for switch between
 vim.api.nvim_del_keymap("n", "H")
 vim.api.nvim_del_keymap("n", "L")

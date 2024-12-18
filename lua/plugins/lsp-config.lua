@@ -1,7 +1,5 @@
 return {
-
   "neovim/nvim-lspconfig",
-
   keys = {
     { "W", "<cmd>w<cr>", desc = "Write" },
   },
