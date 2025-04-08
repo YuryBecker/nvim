@@ -1,9 +1,5 @@
 return {
   "neovim/nvim-lspconfig",
-  keys = {
-    { "W", "<cmd>w<cr>", desc = "Write" },
-  },
-
   opts = {
     inlay_hints = {
       enabled = false,
@@ -23,19 +19,6 @@ return {
         },
       },
 
-      cssls = {
-        autostart = true,
-      },
-
-      tailwindcss = {
-        -- exclude a filetype from the default_config
-        filetypes_exclude = { "markdown" },
-        -- add additional filetypes to the default_config
-        filetypes_include = {},
-        -- to fully override the default_config, change the below
-        -- filetypes = {}
-      },
-
       tsserver = {
         settings = {
           autoformat = false,
@@ -46,22 +29,6 @@ return {
           },
         },
       },
-
-      pyright = {
-        capabilities = {},
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "off",
-            },
-          },
-
-          pyright = {
-            disableLanguageServices = false,
-          },
-        },
-        autostart = true,
-      },
     },
 
     setup = {
@@ -70,14 +37,9 @@ return {
           -- Disable formatting for all clients:
           client.server_capabilities.documentFormattingProvider = false
 
-          -- vim.api.nvim_echo({ { "Something else:!" .. client.name, "WarningMsg" } }, true, {})
-
           if client.name == "eslint" then
-            -- Re-enable formatting for eslint:
             client.server_capabilities.documentFormattingProvider = true
-            -- vim.api.nvim_echo({ { "ESLINT!!", "WarningMsg" } }, true, {})
           elseif client.name == "tsserver" then
-            -- vim.api.nvim_echo({ { "TSSERVER!!", "WarningMsg" } }, true, {})
             client.server_capabilities.documentFormattingProvider = false
           end
 

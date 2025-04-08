@@ -1,5 +1,12 @@
 return {
   [[
+    A finance professor is walking across the University of Chicago campus with a student.
+    They come upon $20 lying on the ground, and the student leans down to pick it up.
+    The professor said, “Don’t bother.
+    If it was really there, somebody else would’ve already picked it up.
+  ]],
+
+  [[
     If you don't learn to find joy in the snow, you will have less joy in your life but precisely the same amount of snow.
   ]],
 
