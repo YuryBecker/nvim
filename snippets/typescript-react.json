@@ -1,0 +1,59 @@
+{
+    "div": {
+        "prefix": "dv - snippet",
+        "body": [
+            "<div className={ cn(",
+            "    'flex flex-col gap-2',",
+            ") }>",
+            "    $1",
+            "</div>"
+        ]
+    },
+
+    "React Function Component": {
+        "prefix": "rf - snippet",
+        "body": [
+            "import * as React from 'react';",
+            "import { observer } from 'mobx-react-lite';",
+            "",
+            "import { cn } from 'utils/cn';",
+            "",
+            "",
+            "const $1: React.FC<{",
+            "    className?: string;",
+            "}> = ({ ...props }) => {",
+            "    React.useEffect(() => {",
+            "        console.log('Init - $1');",
+            "    }, []);",
+            "",
+            "    return (",
+            "        <div className={ cn(",
+            "            'flex flex-col gap-2',",
+            "            props.className",
+            "        ) }>",
+            "            <h1>Hello from $1</h1>",
+            "        </div>",
+            "    );",
+            "};",
+            "",
+            "",
+            "export default observer($1);"
+        ]
+    },
+
+	"useEffect": {
+		"prefix": "ue - snippet",
+		"body": [
+			"React.useEffect(() => {",
+            "    $1",
+            "}, []);"
+		]
+	},
+
+	"useState": {
+		"prefix": "us - snippet",
+		"body": [
+			"const [ $1, $2 ] = React.useState($3);"
+		]
+	}
+}

@@ -1,0 +1,48 @@
+{
+	"store": {
+		"prefix": "st store snippet",
+		"body": [
+			"import { makeAutoObservable } from 'mobx';",
+            "",
+            "",
+            "class $1 {",
+            "    constructor() {",
+            "        makeAutoObservable(this);",
+            "    }",
+            "",
+            "    /* ---- Observable ---- */",
+            "",
+            "",
+            "    /* ---- Computed ---- */",
+            "",
+            "",
+            "    /* ---- Actions ---- */",
+            "",
+            "",
+            "    /* ---- Clean up---- */",
+            "    public reset = () => {",
+            "    };",
+            "}",
+            "",
+            "",
+            "export default new $1();",
+            ""
+		]
+	},
+
+	"useEffect": {
+		"prefix": "ue - snippet",
+		"body": [
+			"React.useEffect(() => {",
+            "    $1",
+            "}, []);"
+		]
+	},
+
+	"useState": {
+		"prefix": "us - snippet",
+		"body": [
+			"const [ $1, $2 ] = React.useState($3);"
+		]
+	}
+}

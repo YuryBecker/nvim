@@ -110,17 +110,6 @@ return {
   ]],
 
   [[
-    In a closed society where everybody's guilty,
-    the only crime is getting caught. In a world of thieves,
-    the only final sin is stupidity.
-  ]],
-
-  [[
-    There is no more meanness too spiteful or too cruel
-    when we hate someone for all the wrong reasons.
-  ]],
-
-  [[
     We have two lives, and the second begins when
     we realize we only have one.
   ]],

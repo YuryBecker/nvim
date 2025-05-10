@@ -34,3 +34,10 @@ end, { noremap = true, silent = true, desc = "Run in Python" })
 -- Remove default keymaps for switch between
 vim.api.nvim_del_keymap("n", "H")
 vim.api.nvim_del_keymap("n", "L")
+
+local function doPrint()
+  local currentFileType = vim.bo.filetype
+  print("Current file type: " .. currentFileType)
+end
+
+vim.keymap.set("n", "<leader>1", doPrint, { noremap = true, silent = true, desc = "Print Debug" })
